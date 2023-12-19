@@ -16,7 +16,7 @@ function createCard() {
     cardArray.forEach(function (e, i) {
         clutter += `<div class="card">
         <div id="o${i}" class="overlay"></div>
-        <img data-overlayid="o${i}"  id="c${i}" src="${e.src}" alt=""  draggable="false">
+        <img data-overlayid="o${i}"  id="c${i}" src="${e.src}" alt="" draggable="false">
     </div>`
     })
     cardBox.innerHTML = clutter
