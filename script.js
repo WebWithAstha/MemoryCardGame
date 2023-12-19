@@ -16,7 +16,7 @@ function createCard() {
     cardArray.forEach(function (e, i) {
         clutter += `<div class="card">
         <div id="o${i}" class="overlay"></div>
-        <img data-overlayid="o${i}"  id="c${i}" src="${e.src}" alt="">
+        <img data-overlayid="o${i}"  id="c${i}" src="${e.src}" alt=""  draggable="false">
     </div>`
     })
     cardBox.innerHTML = clutter
@@ -61,19 +61,19 @@ let pre = ``;
 let score = 0;
 
 document.querySelector("#card-wrapper").addEventListener("click", function (dets) {
+    console.log(dets.target)
     if (dets.target.id !== "card-wrapper") {
         document.querySelector(`#${dets.target.dataset.overlayid}`).style.display = "none"
         dets.target.style.filter = `contrast(1)`
         if (count === 0) {
             pre = dets.target;
-
         }
         count++;
         if (count === 2) {
             if (pre.src === dets.target.src && pre.id !== dets.target.id) {
                 setTimeout(() => {
-                    pre.style.opacity = 0
-                    dets.target.style.opacity = 0
+                    pre.style.display = "none"
+                    dets.target.style.display = "none"
                 }, 400);
                 score += 10;
             } else {
@@ -93,3 +93,7 @@ document.querySelector("#card-wrapper").addEventListener("click", function (dets
 
 
 })
+
+if(score === 60){
+    alert("Dattebayo🎉🫡")
+}
