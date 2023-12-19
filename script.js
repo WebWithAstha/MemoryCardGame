@@ -26,9 +26,13 @@ function createCard() {
 
 function rotateRandom(){
     document.querySelectorAll(".card").forEach(function(e){
-        let randomRotate = Math.floor(Math.random()*(12)-5)
+        let randomRotate = Math.floor(Math.random()*(15)-5)
         gsap.set(e,{
             rotate:randomRotate,
+        })
+        gsap.from(e,{
+            scale:0,
+            rotate:randomRotate*15,
         })
     })
 }
